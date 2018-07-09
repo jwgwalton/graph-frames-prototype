@@ -1,5 +1,6 @@
 from complex_graph_splitter import split_complex_sub_graphs
 
+
 def test_graph_1():
     v = sqlContext.createDataFrame([
         ("CH1", "CH"),
@@ -73,6 +74,7 @@ def test_graph_4():
     ], ["src", "dst", 'weight'])
 
     assert split_complex_sub_graphs(v3, e3) == [['CH1', 'VAT2'], ['CH2', 'VAT1']]
+
 
 def test_graph_5():
     v4 = sqlContext.createDataFrame([

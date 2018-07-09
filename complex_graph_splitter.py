@@ -1,9 +1,5 @@
 from collections import defaultdict
 
-from graphframes import GraphFrame
-from pyspark.sql.functions import col, udf
-from pyspark.sql.types import StructField, ArrayType, StringType, StructType
-
 
 def add_opposite_direction_edges(edge_list):
     """
