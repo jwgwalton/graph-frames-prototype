@@ -93,3 +93,21 @@ def test_graph_5():
     ], ["src", "dst", 'weight'])
 
     assert split_complex_sub_graphs(v4, e4) == [['CH1', 'VAT1', 'VAT2'], ['CH2', 'PAYE3']]
+
+
+def test_graph_6():
+    v5 = sqlContext.createDataFrame([
+        ("CH1", "CH"),
+        ("CH2", "CH"),
+        ("VAT1", "VAT"),
+        ("VAT2", "VAT"),
+    ], ["id", "type"])
+
+    e5 = sqlContext.createDataFrame([
+        ("CH1", "VAT1", "0.9"),
+        ("VAT1", "VAT2", "0.8"),
+        ("CH2", "VAT2", "0.8"),
+    ], ["src", "dst", 'weight'])
+
+    assert split_complex_sub_graphs(v5, e5) == [['CH1', 'VAT1'], ['CH2', 'VAT2']]
+
